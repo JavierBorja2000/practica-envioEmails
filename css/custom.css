@@ -40,6 +40,7 @@ form input, form textarea{
 
 #enviar{
   background: linear-gradient(to bottom right,#38FBEF, #5BAFFC);
+  opacity: 1;
 }
 
 #resetBtn{
@@ -67,6 +68,9 @@ form input, form textarea{
     padding: 3rem 0;
 }
 
+#enviar.desabilitada{
+  opacity: 0.75;
+}
 
 .sk-chase {
     width: 40px;

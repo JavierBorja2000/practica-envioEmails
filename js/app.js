@@ -30,7 +30,10 @@ function eventListener() {
 //funciones
 function iniciarApp(){
     $btnEnviar.disabled = true
-    $btnEnviar.style.opacity = .95
+
+    $email.classList.add("border", "border-gray-700")
+    $asunto.classList.add("border", "border-gray-700")
+    $mensaje.classList.add("border", "border-gray-700")
 }
 
 //valida el formulario
@@ -70,10 +73,9 @@ function validarFormulario(e){
 
 
     //habilitar boton enviar
-    if( validaEmail.test($email.value) && $asunto.value !== "" && $mensaje !== ""){
+    if( validaEmail.test($email.value) && $asunto.value !== "" && $mensaje.value !== ""){
         $btnEnviar.disabled = false
-        $btnEnviar.style.opacity = 1
-        $btnEnviar.style.cursor = "pointer"
+        $btnEnviar.classList.remove("desabilitada", "cursor-not-allowed")
     }
 }
 
@@ -92,8 +94,6 @@ function mostrarError(mensaje) {
 function resetearFormulario(e){
     $formulario.reset()
     e.preventDefault()
-
-    iniciarApp()
 }
 
 //Simulacion deenvio de formulario
@@ -120,8 +120,11 @@ function enviarFormulario(e){
             parrafo.remove() //elimina el mensaje de exito
 
             $formulario.reset()
+            $btnEnviar.classList.add("desabilitada")
             iniciarApp()
         }, 5000)
     }, 3000)
+
+    
 }
 
